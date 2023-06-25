@@ -1,198 +1,202 @@
 html {
   font-size: 100px;
 }
-html,
+
 body,
+html,
 #app {
   height: 100%;
   overflow: hidden;
 }
+
 #app {
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  color: aliceblue;
   position: relative;
-  margin: 0 auto;
-  max-width: 540px;
-  font-size: 0.14rem;
 }
-.header-box,
-.footer-box,
-.main-box {
+
+#app .needle {
+  position: fixed;
+  z-index: 23;
+  top: 0.3rem;
+  left: 50%;
+  background: url(/images/needle-ab.png);
+  background-size: contain;
+  transform: translateZ();
+  width: 0.71rem;
+  height: 1.18rem;
+  background-position: 1.42rem 1.16rem;
+
+}
+
+#app .connect {
   box-sizing: border-box;
-  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+
+
+}
+
+#app .connect .outer {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/images/d7e4e3a244701ee85fecb5d4f6b5bd57.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  z-index: 10;
+  animation: fw 9s linear 0s infinite both;
+  animation-play-state: paused;
+
+
+}
+
+#app .connect .outer.move {
+  animation-play-state: running;
+}
+
+@keyframes fw {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#app .connect .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  background: url(/images/UQ.jpg) no-repeat;
+  background-position: -0.02rem 0rem;
+  background-size: 100%;
+  width: 1.24rem;
+  height: 1.24rem;
+  border-radius: 50%;
+
+}
+
+#app .connect .act {
+  background: url(/images/播放.png) no-repeat;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-size: contain;
+}
+
+#app .main-box {
+  position: absolute;
+  z-index: 10000;
+  margin: 0 auto;
+  text-align: center;
+  top: 3.5rem;
+  width: 100%;
+  height: 2rem;
   overflow: hidden;
 }
-.main-box {
-  height: calc(100vh - 2rem);
+
+#app .main-box .word {
+  width: 100%;
+  height: 1.5rem;
+  transform: translateY(0);
+  transition: transform 0.4s;
 }
-/* 通用样式 */
-.text-clip {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+
+#app .main-box .word h2 {
+  height: 0.2rem;
+  line-height: 0.2rem;
+  font-size: 0.15rem;
+  color: rgba(255, 255, 255, 0.5);
 }
-/* Loading层 */
-.loading-box {
+
+#app .main-box .word h2.active {
+  color: #31C27C;
+  transition: color 0.3s;
+}
+
+.musicname {
+  position: fixed;
+  top: 3.2rem;
+  z-index: 10000;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#app .loading-box {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
-  box-sizing: border-box;
+  z-index: 100002;
   width: 100vw;
   height: 100vh;
+  box-sizing: border-box;
   background: #555;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.loading-box .content img,
-.loading-box .content span {
-  display: block;
+
+#app .loading-box div {
+  text-align: center;
 }
-.loading-box .content img {
-  margin: 0 auto;
+
+#app .loading-box div img {
   width: 0.5rem;
   height: 0.5rem;
 }
-.loading-box .content span {
+
+#app .loading-box div p {
   margin-top: 0.1rem;
   color: #1989fa;
 }
-.loading-box {
-  display: none;
+
+#app .mark-image {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 100%;
+  height: 100%;
+
+
+
+
+  z-index: -1;
+
+
+
+  background-image: url(/images/UQ.jpg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: auto 100%;
+  background-color: #000;
+  filter: invert(70%) blur(30px);
 }
-/* 背景层 */
-.mark-overlay,
-.mark-image {
+
+#app .over-lay {
   position: absolute;
   top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-}
-.mark-image {
+  left: -10;
   z-index: -2;
-  background-size: cover;
-  filter: blur(6px);
-}
-.mark-overlay {
-  z-index: -1;
-  background: rgba(0, 0, 0, 0.5);
-}
-/* 头部区域样式 */
-.header-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.15rem;
-}
-.header-box .player-button {
-  margin-left: 0.05rem;
-  width: 0.35rem;
-  height: 0.35rem;
-  background: url('../images/music.svg') no-repeat;
-  background-size: 100% 100%;
-}
-.header-box .player-button.move {
-  animation: musicMove 1s linear 0s infinite both;
-}
-.header-box .base {
-  flex-grow: 1;
-  display: flex;
-}
-.header-box .base .cover {
-  width: 0.7rem;
-  height: 0.7rem;
-  background: #AAA;
-}
-.header-box .base .cover img {
-  display: block;
   width: 100%;
   height: 100%;
 }
-.header-box .base .cover img[src=""] {
+
+#app .over-lay {
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#app #audiobox {
   display: none;
-}
-.header-box .base .info {
-  flex-grow: 1;
-  margin-left: 0.05rem;
-  max-width: 2.3rem;
-}
-.header-box .base .info .title,
-.header-box .base .info .author {
-  line-height: 0.35rem;
-  color: #fff;
-  font-size: 0.17rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.header-box .base .info .author {
-  font-size: 0.15rem;
-}
-@keyframes musicMove {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* 歌词区域样式 */
-.main-box .wrapper {
-  transform: translateY(0);
-  transition: transform 0.3s;
-}
-.main-box .wrapper p {
-  height: 0.5rem;
-  line-height: 0.5rem;
-  text-align: center;
-  font-size: 0.15rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-.main-box .wrapper p.active {
-  color: #31C27C;
-  transition: color 0.3s;
-}
-/* 尾部区域样式 */
-.footer-box {
-  padding: 0 0.1rem;
-}
-.footer-box .download {
-  display: block;
-  margin: 0 auto;
-  width: 2.13rem;
-  height: 0.5rem;
-  line-height: 0.5rem;
-  text-align: center;
-  font-size: 0.18rem;
-  color: #fff;
-  text-indent: 0.2rem;
-  border-radius: 0.25rem;
-  background: url('../images/sprite_play.png') no-repeat #31C27C;
-  background-size: 0.4rem 3.5rem;
-  background-position: 0.1rem -2.915rem;
-}
-.footer-box .bar {
-  display: flex;
-  align-items: center;
-}
-.footer-box .bar .time {
-  width: 0.4rem;
-  line-height: 0.46rem;
-  text-align: center;
-  font-size: 0.12rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-.footer-box .bar .progress {
-  position: relative;
-  flex-grow: 1;
-  height: 0.02rem;
-  background: rgba(255, 255, 255, 0.5);
-}
-.footer-box .bar .progress .already {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #31C27C;
 }
