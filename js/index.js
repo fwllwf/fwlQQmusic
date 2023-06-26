@@ -14,6 +14,7 @@ FastClick.attach(document.body);
   let wordList = []
   let matchNum = 0
 
+  console.log('sss');
 
 
 
