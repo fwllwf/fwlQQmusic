@@ -1,3 +1,6 @@
+
+console.log('1111');
+
 const obj = {
     code: 0,
     message: 'ok',
@@ -11,7 +14,9 @@ const obj = {
 }
 
 const API = {
+
     queryLyric() {
+        console.log('33', API);
         return new Promise(resolve => {
             setTimeout(
                 () => {
@@ -22,3 +27,4 @@ const API = {
         })
     }
 }
+console.log('2', API);
