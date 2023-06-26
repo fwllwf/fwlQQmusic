@@ -47,38 +47,40 @@
         </div>
         <audio src="" id="audiobox" preload="metadata"></audio>
     </div>
-    <!-- IMPORT JS -->
-    <script>
-        (function () {
-            const app = document.querySelector('#app'),
-                HTML = document.documentElement
-            const computed = function computed() {
-                let orien = Math.abs(window.orientation)
-                if (+orien === 90) {
-                    alert('请切换到竖屏')
-                    app.style.display = 'none'
-                    return
-                }
-                //当前是竖屏
-                app.style.display = 'block'
-                //计算rem的换算比例
-                let deviceW = HTML.clientWidth,
-                    designW = 375,
-                    initialRatio = 100
-                if (deviceW > 540) deviceW = 540
-                let currentRatio = deviceW / designW * initialRatio
-                HTML.style.fontSize = currentRatio + 'px'
-
-            }
-            computed()
-
-
-            window.addEventListener('resize', computed)
-        })()
-    </script>
-    <script src="js/API.js"></script>
-    <script src="js/fastclick.js"></script>
-    <script src="js/index.js"></script>
 </body>
+
+
+<!-- IMPORT JS -->
+<script>
+    (function () {
+        const app = document.querySelector('#app'),
+            HTML = document.documentElement
+        const computed = function computed() {
+            let orien = Math.abs(window.orientation)
+            if (+orien === 90) {
+                alert('请切换到竖屏')
+                app.style.display = 'none'
+                return
+            }
+            //当前是竖屏
+            app.style.display = 'block'
+            //计算rem的换算比例
+            let deviceW = HTML.clientWidth,
+                designW = 375,
+                initialRatio = 100
+            if (deviceW > 540) deviceW = 540
+            let currentRatio = deviceW / designW * initialRatio
+            HTML.style.fontSize = currentRatio + 'px'
+
+        }
+        computed()
+
+
+        window.addEventListener('resize', computed)
+    })()
+</script>
+<script src="./js/API.js"></script>
+<script src="./js/fastclick.js"></script>
+<script src="./js/index.js"></script>
 
 </html>

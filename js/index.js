@@ -1,4 +1,5 @@
 FastClick.attach(document.body);
+console.log('11:48');
 (async function () {
   const box = document.querySelector('#app'),
 
@@ -135,6 +136,7 @@ FastClick.attach(document.body);
 
   /*  向服务发送请求 从服务器获取相关数据 */
   try {
+    console.log('API', API);
     let { code, data } = await API.queryLyric()
     if (+code === 0) {
       //请求成功 网络层和业务层都成功
@@ -144,7 +146,7 @@ FastClick.attach(document.body);
   } catch (_) {
     console.log(_);
   }
-  alert('网络繁忙，请刷新页面')
+  console.log('网络繁忙，请刷新页面');
 
 
 })()
