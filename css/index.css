@@ -22,7 +22,7 @@ html,
   z-index: 23;
   top: 0.3rem;
   left: 50%;
-  background: url(/images/needle-ab.png);
+  background: url(../images/needle-ab.png);
   background-size: contain;
   transform: translateZ();
   width: 0.71rem;
@@ -46,7 +46,7 @@ html,
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/images/d7e4e3a244701ee85fecb5d4f6b5bd57.png);
+  background-image: url(../images/d7e4e3a244701ee85fecb5d4f6b5bd57.png);
   background-size: cover;
   background-repeat: no-repeat;
   width: 2rem;
@@ -78,7 +78,7 @@ html,
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  background: url(/images/UQ.jpg) no-repeat;
+  background: url(../images/UQ.jpg) no-repeat;
   background-position: -0.02rem 0rem;
   background-size: 100%;
   width: 1.24rem;
@@ -88,7 +88,7 @@ html,
 }
 
 #app .connect .act {
-  background: url(/images/播放.png) no-repeat;
+  background: url(../images/播放.png) no-repeat;
   width: 0.5rem;
   height: 0.5rem;
   background-size: contain;
@@ -175,7 +175,7 @@ html,
 
 
 
-  background-image: url(/images/UQ.jpg);
+  background-image: url(../images/UQ.jpg);
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: auto 100%;
